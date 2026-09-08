@@ -1,0 +1,968 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/5/2026 9:25:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIKHITHA__TUMMA"
+  DTS:CreatorName="LIKHITHA__TUMMA\likhi"
+  DTS:DTSID="{14F05CCF-63D1-4730-B752-504C73D42947}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{76FBB219-A363-4E8E-AF86-91004752324A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CC310F90-A7EB-4F18-8AD3-AFA545B2C89D}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::filepath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\likhi\OneDrive\Desktop\ssis data\likhi6_1.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="prod_id"
+              DTS:DTSID="{F93B978E-D562-4682-9CB6-5EA8BD6E7763}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="prod_name"
+              DTS:DTSID="{85F70241-B2A7-4600-B662-67688738AD18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="total"
+              DTS:DTSID="{3E82CFA1-D795-45FE-880B-AAB9961CF869}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.a1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2376ED35-4CCB-4263-A4F7-FF4A8E46B913}"
+      DTS:ObjectName="localhost\SQLEXPRESS.a1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=a1;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{2376ED35-4CCB-4263-A4F7-FF4A8E46B913}localhost\SQLEXPRESS.a1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost\SQLEXPRESS.a1 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6FE7909F-A551-42E3-BCF4-23584BE8EDD1}"
+      DTS:ObjectName="localhost\SQLEXPRESS.a1 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=a1;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{6FE7909F-A551-42E3-BCF4-23584BE8EDD1}localhost\SQLEXPRESS.a1 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CCD02849-5E6C-4C42-9CC5-AAF3EE2CC182}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="des">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\likhi\OneDrive\Desktop\ssis data\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B4EEF7B5-1C01-4E69-9F35-FC4FB46478C0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filepath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\likhi\OneDrive\Desktop\ssis data\likhi6_1.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{87492F2E-9939-4639-AEA4-9678B35BDCFB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="src">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\likhi\OneDrive\Desktop\ftp\w6\likhi6_1.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{94205C64-1684-4ECE-98EE-62727466B5D2}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{B42C6FE9-9095-4748-91B2-5D2A44643E32}"
+        DTS:ObjectName="{B42C6FE9-9095-4748-91B2-5D2A44643E32}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\likhi\OneDrive\Desktop\ftp\w6" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{68E35990-D112-4427-B42D-85368F64317E}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskSourcePath="User::src"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::des"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{1DC96B81-A761-4E92-87FD-28EC4AED85C3}"
+          DTS:ObjectName="{1DC96B81-A761-4E92-87FD-28EC4AED85C3}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::src" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container 1"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{249BADB1-521A-49A1-B698-233072FE6CA0}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container 1">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{A1E4E505-96DC-4E89-8B1A-EC43483F57E9}"
+        DTS:ObjectName="{A1E4E505-96DC-4E89-8B1A-EC43483F57E9}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\likhi\OneDrive\Desktop\ssis data" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container 1\c_likhi_6"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{92D6A193-338B-4C44-AB78-3C1AD4A33A9C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="c_likhi_6"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6FE7909F-A551-42E3-BCF4-23584BE8EDD1}"
+              SQLTask:SqlStatementSource="insert into c_likhi_6&#xA;select*from likhi_06" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container 1\drop,truncate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{776BD01F-49BE-4DA9-97B1-5C2227A1AF06}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="drop,truncate"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2376ED35-4CCB-4263-A4F7-FF4A8E46B913}"
+              SQLTask:SqlStatementSource="drop table likhi_06&#xA;truncate table likhi_6" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container 1\likhi_06"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F3E0057F-7F0D-4333-B812-C75B79AA22DD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="likhi_06"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2376ED35-4CCB-4263-A4F7-FF4A8E46B913}"
+              SQLTask:SqlStatementSource="select&#xA;cast(prod_id as int) as prod_id,&#xA;prod_name,&#xA;cast(total as bigint)as total&#xA;into likhi_06 from likhi_6" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container 1\likhi_6"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7C1457B8-F6CB-472C-8202-098009A58673}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="likhi_6"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="16393"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[prod_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[prod_id]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[prod_id]"
+                          name="prod_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[prod_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[prod_name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[prod_name]"
+                          name="prod_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[total]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[total]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[total]"
+                          name="total"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[prod_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="prod_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[prod_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="prod_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[total]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="total" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[likhi_6]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost\SQLEXPRESS.a1]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost\SQLEXPRESS.a1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prod_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="prod_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prod_id]"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[prod_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[prod_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="prod_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prod_name]"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[prod_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="total"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output].Columns[total]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prod_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="prod_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[prod_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="prod_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="total" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container 1\likhi_6.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container 1\likhi_6\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{463FB0FE-0DB6-444B-8AA3-8174FE85E657}"
+          DTS:From="Package\Foreach Loop Container 1\likhi_6"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container 1\likhi_06" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{16D06BB0-E439-47B3-894A-0841C55C3993}"
+          DTS:From="Package\Foreach Loop Container 1\likhi_06"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container 1\c_likhi_6" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{4FDE0A5C-82A4-4AD7-A9F1-EF6E160B1C66}"
+          DTS:From="Package\Foreach Loop Container 1\c_likhi_6"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container 1\drop,truncate" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{DC863251-05AB-4072-93B1-E358507E0AD5}"
+          DTS:ObjectName="{DC863251-05AB-4072-93B1-E358507E0AD5}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::filepath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container 2"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{322B7781-6581-4CCA-89AE-DB72E789B2FE}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container 2">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{37DF6E60-3930-46B1-AA67-63D652B1C9B6}"
+        DTS:ObjectName="{37DF6E60-3930-46B1-AA67-63D652B1C9B6}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\likhi\OneDrive\Desktop\ssis data" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container 2\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{37C57AFC-19D8-42E0-B7ED-592C482D05FF}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::filepath"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{25FE23BC-7D20-4C93-9ACF-72C307C4737E}"
+          DTS:ObjectName="{25FE23BC-7D20-4C93-9ACF-72C307C4737E}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::filepath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A0106202-0DA2-484A-9515-636A9BDF88DF}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{66B8BE3D-349C-48BA-B68D-4AB0128F3453}"
+      DTS:From="Package\Foreach Loop Container 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container 2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.4,43.2"
+          Id="Package\Foreach Loop Container\File System Task"
+          TopLeft="30.9333249555698,13.7999991140763" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="225.6,114.4"
+          Size="225.6,157.6"
+          Id="Package\Foreach Loop Container"
+          TopLeft="18.3333323316443,20.7999998553594" />
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\Foreach Loop Container 1\likhi_6"
+          TopLeft="51.333313481676,10.3333327607976" />
+        <NodeLayout
+          Size="113.6,41.6"
+          Id="Package\Foreach Loop Container 1\likhi_06"
+          TopLeft="62.9999795109042,74.4666656481558" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Foreach Loop Container 1\c_likhi_6"
+          TopLeft="69.6666458133203,144.666665159994" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Foreach Loop Container 1\drop,truncate"
+          TopLeft="61.3333129353001,222.666664617592" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
+          TopLeft="105.333313481676,51.9333327607976">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.4666660292282,22.5333328873581"
+              Start="0,0"
+              End="14.4666660292282,15.0333328873581">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.26666644367906" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.26666644367906"
+                    Point2="0,11.2666664436791"
+                    Point3="4,11.2666664436791" />
+                  <mssgle:LineSegment
+                    End="10.4666660292282,11.2666664436791" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.4666660292282,11.2666664436791"
+                    Point2="14.4666660292282,11.2666664436791"
+                    Point3="14.4666660292282,15.2666664436791" />
+                  <mssgle:LineSegment
+                    End="14.4666660292282,15.0333328873581" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="119.799979510904,116.066665648156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.4666663024161,28.599999511838"
+              Start="0,0"
+              End="9.4666663024161,21.099999511838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.299999755919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.299999755919"
+                    Point2="0,14.299999755919"
+                    Point3="4,14.299999755919" />
+                  <mssgle:LineSegment
+                    End="5.4666663024161,14.299999755919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.4666663024161,14.299999755919"
+                    Point2="9.4666663024161,14.299999755919"
+                    Point3="9.4666663024161,18.299999755919" />
+                  <mssgle:LineSegment
+                    End="9.4666663024161,21.099999511838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 2]"
+          TopLeft="130.29997937431,186.266665159994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.3999994575979"
+              Start="0,0"
+              End="0,28.8999994575979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8999994575979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="245.6,319.2"
+          Size="245.6,362.4"
+          Id="Package\Foreach Loop Container 1"
+          TopLeft="311.666649637952,28.5999998011192" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Foreach Loop Container 2\File System Task"
+          TopLeft="21.1666322905171,16.8666658651167" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,113.6"
+          Size="204.8,156.8"
+          Id="Package\Foreach Loop Container 2"
+          TopLeft="608.333300095467,55.4666662809584" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="243.933332331644,99.5999998553594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.7333173063072,110.19999994576"
+              Start="0,0"
+              End="60.2333173063072,110.19999994576">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.8666586531536,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.8666586531536,0"
+                    Point2="33.8666586531536,0"
+                    Point3="33.8666586531536,4" />
+                  <mssgle:LineSegment
+                    End="33.8666586531536,106.19999994576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.8666586531536,106.19999994576"
+                    Point2="33.8666586531536,110.19999994576"
+                    Point3="37.8666586531536,110.19999994576" />
+                  <mssgle:LineSegment
+                    End="60.2333173063072,110.19999994576" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="557.266649637952,209.799999801119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.0666504575153,-75.9333335201607"
+              Start="0,0"
+              End="43.5666504575153,-75.9333335201607">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5333252287576,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5333252287576,0"
+                    Point2="25.5333252287576,0"
+                    Point3="25.5333252287576,-4" />
+                  <mssgle:LineSegment
+                    End="25.5333252287576,-71.9333335201607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5333252287576,-71.9333335201607"
+                    Point2="25.5333252287576,-75.9333335201607"
+                    Point3="29.5333252287576,-75.9333335201607" />
+                  <mssgle:LineSegment
+                    End="43.5666504575153,-75.9333335201607" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container 1\likhi_6">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Foreach Loop Container 1\likhi_6\Flat File Source"
+          TopLeft="122.499993306895,59.7999995841583" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination"
+          TopLeft="210.833321813908,192.399998662074" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1\likhi_6.Paths[Flat File Source Output]"
+          TopLeft="198.099993306895,101.399999584158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.333328507013,90.9999990779162"
+              Start="0,0"
+              End="98.333328507013,83.4999990779162">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.4999995389581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.4999995389581"
+                    Point2="0,45.4999995389581"
+                    Point3="4,45.4999995389581" />
+                  <mssgle:LineSegment
+                    End="94.333328507013,45.4999995389581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.333328507013,45.4999995389581"
+                    Point2="98.333328507013,45.4999995389581"
+                    Point3="98.333328507013,49.4999995389581" />
+                  <mssgle:LineSegment
+                    End="98.333328507013,83.4999990779162" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container 1\likhi_6\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
